@@ -1,9 +1,10 @@
 const db = require('../config/db');
-const aiService = require('../services/ai');
+const aiService = require('../services/aiService');
 
 const generateOutreachContent = async (req, res, next) => {
   try {
-    const { lead_id, template_id, tone } = req.body;
+    const { id: lead_id } = req.params;
+    const { template_id, tone } = req.body;
 
     // 1. Fetch Lead Details
     const leadResult = await db.query('SELECT * FROM leads WHERE id = $1', [lead_id]);
