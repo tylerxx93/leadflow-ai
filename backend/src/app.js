@@ -9,6 +9,7 @@ const leadRoutes = require('./routes/leadRoutes');
 const templateRoutes = require('./routes/templateRoutes');
 const campaignRoutes = require('./routes/campaignRoutes');
 const webhookRoutes = require('./routes/webhookRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use('/api/leads', leadRoutes);
 app.use('/api/templates', templateRoutes);
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/webhooks', webhookRoutes);
+app.use('/api/ai', aiRoutes);
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
